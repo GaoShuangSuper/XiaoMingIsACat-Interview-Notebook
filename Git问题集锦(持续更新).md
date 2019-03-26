@@ -23,3 +23,4 @@ remove the file manually to continue.
 出现这个问题一般是执行某个git命令中断了, 并且在你得代码目录某个文件夹下会有一个*.lock的文件. 你需要通过git命令将这个文件去除.
 [资料链接](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository)
 
+
