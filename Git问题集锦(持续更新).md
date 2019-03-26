@@ -24,3 +24,14 @@ remove the file manually to continue.
 [资料链接](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository)
 
 
+抱歉理解错问题
+
+可以尝试使用插件: [AutoVolume](http://www.jesseclaven.com/projects/AutoVolume/) 来解决从睡眠状态唤醒mac时发出声音.
+
+最新版下载链接: [https://github.com/jesse-c/AutoVolume/releases/tag/v1.0.1](https://github.com/jesse-c/AutoVolume/releases/tag/v1.0.1)
+
+源码: [https://github.com/jesse-c/AutoVolume](https://github.com/jesse-c/AutoVolume)
+
+参考资料:[https://www.howtogeek.com/308291/how-to-automatically-mute-your-macbook-when-it-goes-to-sleep/](https://www.howtogeek.com/308291/how-to-automatically-mute-your-macbook-when-it-goes-to-sleep/)
+
+
