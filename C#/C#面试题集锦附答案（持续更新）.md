@@ -243,60 +243,7 @@ int j = (int)o;
 
 28. `C#中的委托是什么? 事件是否是委托? 谈谈你对委托的理解?`
 
-    - 委托就是允许方法当做参数进行传递.
-    - C#中的委托都继承自System.Delegate类型.
-    - 委托类型的声明和方法的签名类似, 需要返回值和参数.
-    - 委托是一种可以封装命名(匿名)方法的引用类型.把方法当做指针传递.但是委托是面向对象并且类型安全的.
-    - 事件可以理解成委托. 其内部是用委托来实现的.
-    - 和委托有关的特性包括但不限于:
-        - 泛型（泛型委托类型）——C#2； 
-        - 创建委托实例时使用的表达式——C#2； 
-        - 匿名方法——C#2； 
-        - 委托协变性/逆变性——C#2； 
-        - Lambda表达式——C#3
-    - 为了让委托做某事, 必须满足四个条件:
-        - 声明`委托类型`;
-        - 必须有一个方法包含要执行的代码;
-        - 必须创建一个`委托实例`;
-        - 必须调用(invoke)`委托实例`.
-    ---
-    >update at 2019-4-8 21:38:36
-
-    - 什么是委托(what)
-
-        实际上可以将委托理解成为一个类. 这个类中有三个方法, 通过反编译委托类中可以看到, 分别是Invoke(执行委托的方法), BeginInvoke(异步开始执行委托的方法), EndInvoke(异步结束委托的方法).
-
-    - 为什么用委托(why)
-
-        - 委托能够将不同方法的重复逻辑进行解耦.
-        - 能够进行代码复用
-
-    - 怎么用委托(how)
-
-        - [DelegateDemo](https://github.com/itdennis/DennisDemos/blob/master/DennisDemos/Demoes/Delegate_Demos/DelegateDemo.cs)
-        - [DelegateDemo2](https://github.com/itdennis/DennisDemos/blob/master/DennisDemos/Demoes/Delegate_Demos/DelegateDemo2.cs)
-        - [DelegateDemo3](https://github.com/itdennis/DennisDemos/blob/master/DennisDemos/Demoes/Delegate_Demos/DelegateDemo3.cs)
-        - [DelegateDemoInAdvance](https://github.com/itdennis/DennisDemos/blob/master/DennisDemos/Demoes/Delegate_Demos/DelegateDemoInAdvance.cs)
-
-    - 委托的发展
-
-        - 在.net framework 1.0的时候, 委托传递的方法是需要声明出来的.
-        - .net framework 2.0的时候, 委托可以传递一个匿名方法. 匿名的好处是可以不用过多的声明方法, 另外可以使用共享变量. 这是独立声明一个方法无法做到的.
-
-        ```csharp
-            StringProcesser tomVoice = new StringProcesser(delegate (string s1)
-            {
-                Console.WriteLine(s1);
-            });
-            tomVoice.Invoke("Hello Daddy.");
-        ```
-
-        - .net framework3.0引入lambda表达式, 所以我们的委托又变成了这个样子. 表达式中的参数要么都写, 要么都不写.
-
-        ```csharp
-            StringProcesser background = (s2) =>  Console.WriteLine(s2);
-            background.Invoke("Hello Daddy.");
-        ```
+    参考我的[委托专题]()
 
 29. `简述一下一个引用对象的生命周期？`
 
