@@ -1,5 +1,7 @@
 # C#基础
 
+<font face="Microsoft YaHei">
+
 `值类型和引用类型的区别`
 
 值类型包括简单类型、结构体类型和枚举类型，引用类型包括自定义类、数组、接口、委托等。
@@ -181,7 +183,7 @@ override：在类的继承中使用，通过覆写子类方法可以改变父类
 
 下面的代码片段阐释两者的区别:
 
-    ```csharp
+```csharp
     public class Program
     {
         public readonly int PORT;
@@ -217,7 +219,7 @@ override：在类的继承中使用，通过覆写子类方法可以改变父类
     {
         public string ccc = "aaaa";
     }
-    ```
+```
 
 `字段和属性的异同`
 
@@ -343,6 +345,7 @@ C#里的析构函数其实就是终结器Finalize，因为长得像C++里的析�
 - 依赖注入是实现IOC的一种方法，但不等同于IOC，IOC是一种思想，DI只是一种实现。
 - AOP是Aspect Oriented Programming的缩写，即面向切面编程。与面向过程和面向对象的编程方式相比，面向切面编程提供了一种全新的思路，解决了OOP编程过程中的一些痛点。
 - IOC的实现原理是利用了反射技术，那么AOP的实现原理是动态代理技术
-    
+
+</font>
 
 
