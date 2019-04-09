@@ -14,4 +14,8 @@
 
 - `EndPoint Routing`
 
-2.2又增添了一种routing system, 为了提升request的分发的. 看来以后学完还得回来给多做解释了
+2.2又增添了一种routing system, 为了提升request的分发的. 看来以后学完还得回来给多做解释了.
+
+- `Health Check`
+
+引入健康检查系统, 能够更快的检查出来系统是否正常. 如果不正常还可以进行一些处理措施.
