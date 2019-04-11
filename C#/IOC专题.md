@@ -28,68 +28,12 @@
 
 >目前有业务需求如下:
 小明是某政府企业的IT部门, 目前正准备为当地旅游产业搞一个宾馆预订的系统. 当地的所有宾馆可以在该系统上进行注册之后录入宾馆的信息比如房间数量等. 系统可以统一管理这些宾馆的信息, 游客也可以登录该系统进行宾馆房间的预订. 小明负责这个系统的架构工作.
-
->小明思考了一下, 这个hotel booking system系统应该是这样的
 ![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190411164656481-1372640398.png)
 
-``` csharp
-    /// <summary>
-    /// 将注册到系统的Hotel抽象出IHotel基类
-    /// 以后再注册的Hotel都需要实现这个基类的内容
-    /// </summary>
-    public interface IHotel
-    {
-        string Name { get; set; }
-        int RoomCount { get; set; }
-        int LeftRoomCount { get; set; }
-        bool Check();
-    }
+>小明思考了一下, 画出了UML的第一个版本
+![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190411180528022-1587005448.png)
+可以看出来这里面的耦合还是很多的, 虽然是分了UI, BLL, DAL, 但是对于以后的扩展来说还是会有很多耦合. 先撸代码为敬.
 
-    /// <summary>
-    /// 实际注册的hotel类
-    /// </summary>
-    public class GoldenHotel
-    {
-        public string Name { get; set; }
-        public int RoomCount { get; set; }
-        public int LeftRoomCount { get; set; }
-        public bool NeedPassPort { get; set; }
-        [DInjectionConstruct]
-        public GoldenHotel(bool needPassport)
-        {
-            this.Name = "Golden";
-            this.RoomCount = 400;
-            this.LeftRoomCount = 400;
-            this.NeedPassPort = needPassport;
-        }
 
-        public bool Check()
-        {
-            Console.WriteLine("this is golden hotel for booking check system.");
-            return true;
-        }
-    }
-    /// <summary>
-    /// 实际注册的hotel类
-    /// </summary>
-    public class JWHotel : IHotel
-    {
-        public string Name { get; set; }
-        public int RoomCount { get; set; }
-        public int LeftRoomCount { get; set; }
-        public JWHotel()
-        {
-            this.Name = "JW";
-            this.RoomCount = 400;
-            this.LeftRoomCount = 400;
-        }
-
-        public bool Check()
-        {
-            Console.WriteLine("this is jw hotel for booking check system.");
-            return true;
-        }
-    }    
-```
 
 
