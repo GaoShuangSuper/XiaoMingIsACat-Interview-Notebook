@@ -9,3 +9,7 @@ wasp
 wasp all
 
 ![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190411161555491-830309408.png)
+
+job monitor
+
+![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190419175347219-451774237.png)
