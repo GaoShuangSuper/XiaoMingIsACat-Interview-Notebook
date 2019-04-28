@@ -17,3 +17,8 @@
 ## 数据库设计思路
 
 ## Email Service设计思路
+
+## 参考资料
+
+sql trigger:
+[https://sweetcode.io/using-triggers-and-email-alerts-in-microsoft-sql-server/](https://sweetcode.io/using-triggers-and-email-alerts-in-microsoft-sql-server/)
