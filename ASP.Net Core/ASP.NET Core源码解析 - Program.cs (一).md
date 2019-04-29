@@ -11,6 +11,7 @@
 1. 参考微软文档吧, 很详细: [https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-2.2&tabs=visual-studio](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-2.2&tabs=visual-studio)
 
 2. 创建完后会有个web项目, 打开后我这面的层级目录如下:
+
     ![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190428160442326-1514188724.png)
 
 ## 代码解析
@@ -24,22 +25,22 @@
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        public static IWebHostBuilder CreateWebHostBuilder(string[]args) =>
+        WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>();
     }
 ```
 
 基本上做了两件事, 在下面我将分两个section解读这两部分:
-1. [创建 WebHostBuilder 对象](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.NET%20Core%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%20-%20Program.cs%20(%E4%B8%80).md)
-2. [让这个 WebHostBuilder 对象 build一个 webhost 并run起来](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.NET%20Core%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%20-%20Program.cs%20(%E4%BA%8C).md)
+1. [创建 WebHostBuilder 对象](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.NET%20Core%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%20-%20Program.cs%20(%E4%B8%80).md#%E5%88%9B%E5%BB%BA-webhostbuilder-%E5%AF%B9%E8%B1%A1)
+2. [让这个 WebHostBuilder 对象 build一个 webhost 并run起来](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.NET%20Core%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%20-%20Program.cs%20(%E4%BA%8C).md#%E8%AE%A9%E8%BF%99%E4%B8%AA-webhostbuilder-%E5%AF%B9%E8%B1%A1-build%E4%B8%80%E4%B8%AA-webhost-%E5%B9%B6run%E8%B5%B7%E6%9D%A5)
 
 ### 创建 WebHostBuilder 对象
 
 ```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>();
 ```
 
 1. 分开来看, 先看第一部分 `WebHost.CreateDefaultBuilder(args)`
