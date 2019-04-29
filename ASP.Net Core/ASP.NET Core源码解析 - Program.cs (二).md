@@ -2,13 +2,6 @@
 
 <font face="microsoft yahei">
 
-本篇旨在解读 asp.net core 的代码层面的知识点, 也是本人边学习源码边总结的一个过程. 如果有任何不对的地方请指出来, 全篇皆是个人观点, 仅供参考.
-
-## 本篇文章在写作时的基础环境信息
->.net core 版本: 2.2\
-vs版本: vs2019\
-asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4)
-
 ## 目录
 
 [ASP.Net Core 学习笔记](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.Net%20Core%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)

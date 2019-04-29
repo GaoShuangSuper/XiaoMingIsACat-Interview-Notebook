@@ -1,13 +1,6 @@
-# ASP.NET Core源码解析 - Program.cs (一)
-
 <font face="microsoft yahei">
 
-本篇旨在解读 asp.net core 的代码层面的知识点, 也是本人边学习源码边总结的一个过程. 如果有任何不对的地方请指出来, 全篇皆是个人观点, 仅供参考.
-
-## 本篇文章在写作时的基础环境信息
->.net core 版本: 2.2\
-vs版本: vs2019\
-asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4)
+# ASP.NET Core源码解析 - Program.cs (一)
 
 ## 目录
 
@@ -18,7 +11,7 @@ asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](
 1. 参考微软文档吧, 很详细: [https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-2.2&tabs=visual-studio](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-2.2&tabs=visual-studio)
 
 2. 创建完后会有个web项目, 打开后我这面的层级目录如下:
-![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190428160442326-1514188724.png)
+    ![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190428160442326-1514188724.png)
 
 ## 代码解析
 
