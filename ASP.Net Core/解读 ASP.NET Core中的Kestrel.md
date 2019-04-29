@@ -33,24 +33,43 @@
     }
     ```
 
-- `ConfigureKestrel`可提供的配置
+- `ConfigureKestrel`可提供的配置 , 我列举了一些个人感觉比较重要的在下面, 如需查看其他的配置可以点[这里](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2#kestrel-options).
     - 这些配置都是配置于`KestrelServerOptions`这个class的实例上.
-    ```csharp
-    // MaxConcurrentConnections 默认是null,即不限制数量
-    // MaxRequestBodySize 默认是 30,000,000 bytes,大约28.6MB
-    .ConfigureKestrel((context, options) =>
-    {
-        options.Limits.MaxConcurrentConnections = 100;
-        options.Limits.MaxConcurrentUpgradedConnections = 100;
-        options.Limits.MaxRequestBodySize = 10 * 1024;
-        options.Limits.MinRequestBodyDataRate =
+
+        - `MaxConcurrentConnections` 默认是null,即不限制数量
+            >options.Limits.MaxConcurrentConnections = 100;
+
+        - `MaxRequestBodySize` 默认是 30,000,000 bytes,大约28.6MB
+            >options.Limits.MaxRequestBodySize = 10 * 1024;
+
+        - `MinRequestBodyDataRate` 每秒传输的数据大小最小为多少(bytes), 低于这个值会timeout, gracePeriod 是一个宽限期, 当client最初建立tcp链接时发送数据的速率低于前面设置的值也可以接受. 超过宽限期之后, MinRequestBodyDataRate会生效. 默认是240 bytes/second,   5 second grace period.
+            >options.Limits.MinRequestBodyDataRate =
             new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
         options.Limits.MinResponseDataRate =
             new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
-        options.Listen(IPAddress.Loopback, 5000);
-        options.Listen(IPAddress.Loopback, 5001, listenOptions =>
-        {
-            listenOptions.UseHttps("testCert.pfx", "testPassword");
-        });
-    });
-    ```
+
+        - `MaxStreamsPerConnection` 限制每个HTTP / 2连接的并发请求流数量。多余的流被拒绝。
+            >options.Limits.Http2.MaxStreamsPerConnection = 100;
+
+        - `ConfigureEndpointDefaults(Action<ListenOptions>)` 配置Endpoint.
+            ```csharp
+            options.ConfigureEndpointDefaults(configureOptions =>
+            {
+                configureOptions.NoDelay = true;
+            });
+            ```
+        - `ConfigureHttpsDefaults(Action<HttpsConnectionAdapterOptions>)`
+        ```csharp
+        options.ConfigureHttpsDefaults(httpsOptions =>
+            {
+                // certificate is an X509Certificate2
+                httpsOptions.ServerCertificate = certificate;
+            });
+        ```
+        - `ListenOptions`
+            - `UseHttps` 配置Kestrel以使用HTTPS和默认证书。如果未配置默认证书，则引发异常。
+            - [For more](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2#listenoptionsusehttps)
+
+>关于服务器Kestrel的其他配置还需要进一步研究和实践中进行总结.\
+update at 2019-4-29 18:21:15
+
