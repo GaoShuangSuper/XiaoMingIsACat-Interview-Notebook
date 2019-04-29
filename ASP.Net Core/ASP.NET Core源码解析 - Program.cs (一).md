@@ -9,6 +9,10 @@
 vs版本: vs2019\
 asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4)
 
+## 目录
+
+[ASP.Net Core 学习笔记](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.Net%20Core%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
+
 ## 创建一个 asp.net core的项目
 
 1. 参考微软文档吧, 很详细: [https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-2.2&tabs=visual-studio](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-2.2&tabs=visual-studio)
@@ -34,8 +38,8 @@ asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](
 ```
 
 基本上做了两件事, 在下面我将分两个section解读这两部分:
-1. `创建 WebHostBuilder 对象`
-2. 让这个 WebHostBuilder 对象 build一个 webhost 并run起来
+1. [创建 WebHostBuilder 对象](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.NET%20Core%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%20-%20Program.cs%20(%E4%B8%80).md)
+2. [让这个 WebHostBuilder 对象 build一个 webhost 并run起来](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/ASP.NET%20Core%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%20-%20Program.cs%20(%E4%BA%8C).md)
 
 ### 创建 WebHostBuilder 对象
 
