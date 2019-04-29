@@ -1,4 +1,4 @@
-# ASP.NET Core源码解析(一) - Program.cs
+# ASP.NET Core源码解析 - Program.cs (一)
 
 <font face="microsoft yahei">
 
@@ -18,7 +18,6 @@ asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](
 
 ## 代码解析
 
-### Program.cs
 ```csharp
     //为什么关注这个类, 因为这里有main函数, 一般来说main函数都是程序启动的时候的启动类. 看一下这行代码:
     public class Program
@@ -35,12 +34,16 @@ asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](
 ```
 
 基本上做了两件事, 在下面我将分两个section解读这两部分:
-1. 创建webhost对象
-2. 让这个webhost对象run起来
+1. `创建 WebHostBuilder 对象`
+2. 让这个 WebHostBuilder 对象 build一个 webhost 并run起来
 
-### 创建webhost对象
+### 创建 WebHostBuilder 对象
 
- `public static IWebHostBuilder CreateWebHostBuilder(string[] args)` 这个方法返回了一个 `IWebHostBuilder` , 通过 `WebHost.CreateDefaultBuilder().UseStartup<Startup>();`
+```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
+```
 
 1. 分开来看, 先看第一部分 `WebHost.CreateDefaultBuilder(args)`
 
@@ -56,7 +59,7 @@ asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](
     至于这个 `UseKestrel` 我当然也找到了. 贴到下面:
     ![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190428164045290-1649662780.png)
 
-    如果想了解一下这个 `Kestrel` , 参考这篇吧 [解读ASP.NET Core中的Kestrel.md](.\解读 ASP.NET Core中的Kestrel.md)
+    如果想了解一下这个 `Kestrel` , 参考这篇吧 [解读ASP.NET Core中的Kestrel.md](https://github.com/itdennis/XiaoMingIsACat-Interview-Notebook/blob/master/ASP.Net%20Core/%E8%A7%A3%E8%AF%BB%20ASP.NET%20Core%E4%B8%AD%E7%9A%84Kestrel.md)
 
     然后是其内部的代码逻辑:
     ![](https://img2018.cnblogs.com/blog/1216080/201904/1216080-20190429182444829-1410273946.png)
@@ -81,12 +84,8 @@ asp.net core 源码: [https://github.com/aspnet/AspNetCore/releases/tag/v2.2.4](
     
 那么`webhostbuilder`创建出来后, 里面有两个缓存, 对startup的类型进行缓存之外, 还对startup的services进行缓存. 至于有什么作用, 需要后文解读. 
 
-### 让这个webhost对象run起来
 
-紧跟着`webhostbuilder`创建成功后, 代码执行 `.Build()`
->Builds an Microsoft.AspNetCore.Hosting.IWebHost which hosts a web application.
 
-不翻译了, f12看到的. 
 
 
 
